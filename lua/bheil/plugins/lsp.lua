@@ -17,11 +17,6 @@ return {
         lspconfig_defaults.capabilities,
         require('cmp_nvim_lsp').default_capabilities()
       )
-      require'lspconfig'.javascript.setup {
-        cmd = { 'javascript-language-server', '--stdio' },
-        filetypes = { "javascript", "javascriptreact", "javascript.jsx" },
-        root_dir = function() return vim.loop.cwd() end
-      }
 
       require'lspconfig'.csharp_ls.setup{}
       require'lspconfig'.gopls.setup{}
