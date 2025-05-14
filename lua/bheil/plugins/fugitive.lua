@@ -7,6 +7,7 @@ return {
       local msg =  vim.fn.input("msg > ")
       vim.cmd(":Git commit -m '" .. msg .. "'")
     end)
+    vim.keymap.set("n", "<leader>gp", "<cmd>:Git push")
     vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>")
     vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>")
   end
