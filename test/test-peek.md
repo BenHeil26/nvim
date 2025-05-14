@@ -18,3 +18,11 @@ List of stuff:
 * Second thing
     * nested thing
 
+this is a diagram to test mermaid:
+```mermaid
+flowchart LR
+    A --> B
+    A --> B
+```
+
+
