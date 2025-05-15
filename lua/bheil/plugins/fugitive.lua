@@ -11,7 +11,8 @@ return {
       local branch =  vim.fn.input("name > ")
       vim.cmd(":Git checkout -B '" .. branch .. "'")
     end)
-    vim.keymap.set("n", "<leader>gp", "<cmd>:Git push<CR>")
+    vim.keymap.set("n", "<leader>gp", "<cmd>:git pull<cr>")
+    vim.keymap.set("n", "<leader>gP", "<cmd>:git push<cr>")
     vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>")
     vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>")
   end
