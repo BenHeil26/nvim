@@ -146,9 +146,6 @@ return {
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      require 'lspconfig'.copilot.setup {
-        capabilities = capabilities,
-      }
       require 'lspconfig'.marksman.setup {
         capabilities = capabilities,
       }
