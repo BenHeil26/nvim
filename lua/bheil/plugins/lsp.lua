@@ -1,14 +1,15 @@
 return {
-  {'neovim/nvim-lspconfig',
-    dependencies= {
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'hrsh7th/cmp-cmdline'},
-      {'hrsh7th/cmp-vsnip'},
-      {'hrsh7th/vim-vsnip'},
-      {'brenoprata10/nvim-highlight-colors'},
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'hrsh7th/cmp-cmdline' },
+      { 'hrsh7th/cmp-vsnip' },
+      { 'hrsh7th/vim-vsnip' },
+      { 'brenoprata10/nvim-highlight-colors' },
     },
     config = function()
       -- Reserve a space in the gutter
@@ -16,7 +17,7 @@ return {
       vim.opt.signcolumn = 'yes'
 
 
-      -- configure hightlighting
+      -- configure highlighting
       require("nvim-highlight-colors").setup {
         ---Render style
         ---@usage 'background'|'foreground'|'virtual'
@@ -53,7 +54,7 @@ return {
         ---Highlight ansi colors, e.g '\033[0;34m'
         enable_ansi = true,
 
-        -- Highlight hsl colors without function, e.g. '--foreground: 0 69% 69%;'
+        ---Highlight hsl colors without function, e.g. '--foreground: 0 69% 69%;'
         enable_hsl_without_function = true,
 
         ---Highlight CSS variables, e.g. 'var(--testing-color)'
@@ -69,7 +70,7 @@ return {
         ---Label must be properly escaped with '%' to adhere to `string.gmatch`
         --- :help string.gmatch
         custom_colors = {
-          { label = '%-%-theme%-primary%-color', color = '#0f1219' },
+          { label = '%-%-theme%-primary%-color',   color = '#0f1219' },
           { label = '%-%-theme%-secondary%-color', color = '#5a5d64' },
         },
 
@@ -93,8 +94,8 @@ return {
         require('cmp_nvim_lsp').default_capabilities()
       )
 
-      local cmp = require'cmp'
-      cmp.setup{
+      local cmp = require 'cmp'
+      cmp.setup {
         snippet = {
           -- REQUIRED - you must specify a snippet engine
           expand = function(args)
@@ -116,8 +117,8 @@ return {
           { name = 'nvim_lsp' },
           { name = 'vsnip' }, -- For vsnip users.
         }, {
-            { name = 'buffer' },
-          }),
+          { name = 'buffer' },
+        }),
         formatting = {
           format = require("nvim-highlight-colors").format
         }
@@ -137,28 +138,31 @@ return {
         sources = cmp.config.sources({
           { name = 'path' }
         }, {
-            { name = 'cmdline' }
-          }),
+          { name = 'cmdline' }
+        }),
         matching = { disallow_symbol_nonprefix_matching = false }
       })
 
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      
-      require'lspconfig'.marksman.setup{
+
+      require 'lspconfig'.copilot.setup {
         capabilities = capabilities,
       }
-      require'lspconfig'.pyright.setup{
+      require 'lspconfig'.marksman.setup {
         capabilities = capabilities,
       }
-      require'lspconfig'.ts_ls.setup{
+      require 'lspconfig'.pyright.setup {
+        capabilities = capabilities,
+      }
+      require 'lspconfig'.ts_ls.setup {
         capabilities = capabilities
       }
-      require'lspconfig'.csharp_ls.setup{
+      require 'lspconfig'.csharp_ls.setup {
         capabilities = capabilities
       }
-      require'lspconfig'.gopls.setup{
-        cmd = {'gopls'},
+      require 'lspconfig'.gopls.setup {
+        cmd = { 'gopls' },
         capabilities = capabilities,
         settings = {
           gopls = {
@@ -188,8 +192,8 @@ return {
           local path = client.workspace_folders[1].name
 
           -- Don't do anything if there is project local config
-          if vim.uv.fs_stat(join(path, '.luarc.json')) 
-            or vim.uv.fs_stat(join(path, '.luarc.jsonc'))
+          if vim.uv.fs_stat(join(path, '.luarc.json'))
+              or vim.uv.fs_stat(join(path, '.luarc.jsonc'))
           then
             return
           end
@@ -201,7 +205,7 @@ return {
             },
             diagnostics = {
               -- Get the language server to recognize the `vim` global
-              globals = {'vim'}
+              globals = { 'vim' }
             },
             workspace = {
               checkThirdParty = false,
@@ -225,7 +229,7 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         desc = 'LSP actions',
         callback = function(event)
-          local opts = {buffer = event.buf}
+          local opts = { buffer = event.buf }
           vim.keymap.set('n', 'D', "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
           vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
           vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
@@ -235,7 +239,7 @@ return {
           vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
           vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
           vim.keymap.set('n', '<leader>rr', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-          vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+          vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
           vim.keymap.set('n', '<leader>.', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
         end,
       })
