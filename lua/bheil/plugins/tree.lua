@@ -19,6 +19,9 @@ return {
 			filters = {
 				dotfiles = false,
 			},
+      git = {
+        ignore = false,
+      }
 		})
 		vim.keymap.set('n', '<leader>to', vim.cmd.NvimTreeFocus)
 		vim.keymap.set('n', '<leader>tt', vim.cmd.NvimTreeToggle)
