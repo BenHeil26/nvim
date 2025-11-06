@@ -37,6 +37,18 @@ return {
         { noremap = true, silent = true, desc = "CopilotChat Optimize selection" })
       vim.keymap.set('v', '<leader>cd', ":<C-u>CopilotChatDocs<CR>",
         { noremap = true, silent = true, desc = "CopilotChat Docs for selection" })
+      vim.keymap.set("n", "<leader>Cf", function()
+        local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+        if not git_root or git_root == "" then
+          vim.notify("Not inside a git repository", vim.log.levels.ERROR)
+          return
+        end
+        local file_path = vim.fn.expand("%:p")
+        local rel_path = file_path:sub(#git_root + 2) -- +2 to skip '/' after git_root
+        local file_prompt = "#file:./" .. rel_path .. " "
+        local user_prompt = vim.fn.input("prompt > ")
+        vim.cmd("CopilotChat " .. file_prompt .. user_prompt)
+      end, { noremap = true, silent = true, desc = "CopilotChat with relative file path in prompt" })
     end,
   },
 }
