@@ -10,8 +10,6 @@ vim.opt.termguicolors = true
 vim.o.scrolloff = 8
 vim.opt.wrap = false
 
-vim.api.nvim_set_hl(0, "Visual", { bg = "cyan", fg = "none" })
-
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp", { clear = true }),
   callback = function(args)
