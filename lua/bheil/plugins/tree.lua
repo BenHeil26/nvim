@@ -1,29 +1,29 @@
 return {
-	"nvim-tree/nvim-tree.lua",
-	version = "*",
-	lazy = false,
-	dependencies = {
-		"nvim-tree/nvim-web-devicons",
-	},
-	config = function()
-		require("nvim-tree").setup({
-			sort = {
-				sorter = "case_sensitive",
-			},
-			view = {
-				width = 45,
-			},
-			renderer = {
-				group_empty = true,
-			},
-			filters = {
-				dotfiles = false,
-			},
+  "nvim-tree/nvim-tree.lua",
+  version = "*",
+  lazy = false,
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+  },
+  config = function()
+    require("nvim-tree").setup({
+      sort = {
+        sorter = "case_sensitive",
+      },
+      view = {
+        width = 45,
+      },
+      renderer = {
+        group_empty = true,
+      },
+      filters = {
+        dotfiles = false,
+      },
       git = {
         ignore = false,
       }
-		})
-		vim.keymap.set('n', '<leader>to', vim.cmd.NvimTreeFocus)
-		vim.keymap.set('n', '<leader>tt', vim.cmd.NvimTreeToggle)
-	end
+    })
+    vim.keymap.set('n', '<leader>to', vim.cmd.NvimTreeFocus)
+    vim.keymap.set('n', '<leader>tt', vim.cmd.NvimTreeToggle)
+  end
 }
