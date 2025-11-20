@@ -14,5 +14,11 @@ return {
     vim.keymap.set("n", "<leader>gp", "<cmd>:Git pull<cr>")
     vim.keymap.set("n", "<leader>gP", "<cmd>:Git push<cr>")
     vim.keymap.set("n", "<leader>gh", "<cmd>:Gdiffsplit<CR>")
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "fugitive",
+      callback = function()
+        vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = true })
+      end,
+    })
   end
 }
