@@ -103,8 +103,8 @@ return {
           end,
         },
         window = {
-          -- completion = cmp.config.window.bordered(),
-          -- documentation = cmp.config.window.bordered(),
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -145,7 +145,9 @@ return {
 
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
+      local on_attach = function(client, bufnr)
+        client.server_capabilities.semanticTokensProvider = nil
+      end
       require 'lspconfig'.marksman.setup {
         capabilities = capabilities,
       }
@@ -156,7 +158,8 @@ return {
         capabilities = capabilities
       }
       require 'lspconfig'.csharp_ls.setup {
-        capabilities = capabilities
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
       require 'lspconfig'.gopls.setup {
         cmd = { 'gopls' },
