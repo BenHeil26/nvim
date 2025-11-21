@@ -11,9 +11,10 @@ vim.o.scrolloff = 8
 vim.opt.wrap = false
 
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("lsp", { clear = true }),
   callback = function(args)
+    local group = vim.api.nvim_create_augroup("LspFormat_" .. args.buf, { clear = true })
     vim.api.nvim_create_autocmd("BufWritePre", {
+      group = group,
       buffer = args.buf,
       callback = function()
         vim.lsp.buf.format { async = false, id = args.data.client_id }

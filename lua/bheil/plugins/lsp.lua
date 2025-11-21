@@ -145,23 +145,25 @@ return {
 
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      local on_attach = function(client, bufnr)
-        client.server_capabilities.semanticTokensProvider = nil
-      end
-      require 'lspconfig'.marksman.setup {
+      vim.lsp.enable("marksman")
+      vim.lsp.enable("pyright")
+      vim.lsp.enable("ts_ls")
+      vim.lsp.enable("gopls")
+      vim.lsp.enable("lua_ls")
+      vim.lsp.enable("csharp_ls")
+      vim.lsp.config("marksman", {
         capabilities = capabilities,
-      }
-      require 'lspconfig'.pyright.setup {
+      })
+      vim.lsp.config("pyright", {
         capabilities = capabilities,
-      }
-      require 'lspconfig'.ts_ls.setup {
+      })
+      vim.lsp.config("ts_ls", {
         capabilities = capabilities
-      }
-      require 'lspconfig'.csharp_ls.setup {
+      })
+      vim.lsp.config("csharp_ls", {
         capabilities = capabilities,
-        on_attach = on_attach,
-      }
-      require 'lspconfig'.gopls.setup {
+      })
+      vim.lsp.config("gopls", {
         cmd = { 'gopls' },
         capabilities = capabilities,
         settings = {
@@ -177,8 +179,8 @@ return {
         init_options = {
           usePlaceholders = true,
         }
-      }
-      require('lspconfig').lua_ls.setup({
+      })
+      vim.lsp.config("lua_ls", {
         capabilities = capabilities,
         settings = {
           Lua = {
