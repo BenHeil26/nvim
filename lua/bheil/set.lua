@@ -24,3 +24,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.lsp.handlers["textDocument/semanticTokens/full"] = function() end
+
+vim.opt.guicursor = {
+  "n-v-c:block",
+  "i-ci-ve:block-blinkwait700-blinkoff400-blinkon250",
+  "r-cr:hor20",
+  "o:hor50",
+  "a:"
+}
