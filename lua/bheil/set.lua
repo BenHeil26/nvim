@@ -33,4 +33,4 @@ vim.opt.guicursor = {
   "a:"
 }
 
-vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>Twilight<cr>")
+vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>")

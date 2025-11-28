@@ -1,8 +1,7 @@
 fn main() {
     println!("Hello, world!");
     doo();
-    doo();
-    doo();
+    foo();
 }
 
 fn doo() {
