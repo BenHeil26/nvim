@@ -233,6 +233,8 @@ return {
         callback = function(event)
           local opts = { buffer = event.buf }
           vim.keymap.set('n', 'D', "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
+          vim.keymap.set('n', '<leader>dn', "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
+          vim.keymap.set('n', '<leader>dp', "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
           vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
           vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
           vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
@@ -244,6 +246,9 @@ return {
           vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
           vim.keymap.set('n', '<leader>.', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
         end,
+      })
+      vim.diagnostic.config({
+        virtual_text = true
       })
     end
   }
