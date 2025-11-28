@@ -32,3 +32,5 @@ vim.opt.guicursor = {
   "o:hor50",
   "a:"
 }
+
+vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>Twilight<cr>")
