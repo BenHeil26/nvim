@@ -34,3 +34,6 @@ vim.opt.guicursor = {
 }
 
 vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>")
+
+vim.keymap.set("n", "<leader>nls", "<cmd>ZkNotes<cr>")
+vim.keymap.set("v", "<leader>nm", "<cmd>'<,'>ZkMatch<cr>")
