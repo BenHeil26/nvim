@@ -37,3 +37,14 @@ vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>")
 
 vim.keymap.set("n", "<leader>nls", "<cmd>ZkNotes<cr>")
 vim.keymap.set("v", "<leader>nm", "<cmd>'<,'>ZkMatch<cr>")
+vim.api.nvim_create_user_command(
+  "ZkDaily",
+  function()
+    local file_path = vim.fn.system("zk get-daily")
+    vim.fn.system("zk daily")
+    vim.cmd("edit " .. file_path)
+  end,
+  {}
+)
+vim.keymap.set("n", "<leader>nd", "<cmd>ZkDaily<cr>")
+vim.keymap.set("n", "<leader>nt", "<cmd>ZkTags<cr>")
