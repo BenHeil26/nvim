@@ -48,3 +48,13 @@ vim.api.nvim_create_user_command(
 )
 vim.keymap.set("n", "<leader>nd", "<cmd>ZkDaily<cr>")
 vim.keymap.set("n", "<leader>nt", "<cmd>ZkTags<cr>")
+vim.api.nvim_create_user_command(
+  "ZkFleeting",
+  function()
+    local note = vim.fn.input('Note > ')
+    vim.fn.system("echo " .. note .. " | zk fl")
+    print("\r\nFleeting note created!")
+  end,
+  {}
+)
+vim.keymap.set("n", "<leader>nf", "<cmd>ZkFleeting<cr>")
