@@ -2,6 +2,10 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "number"
 vim.opt.showmode = false
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function() vim.opt_local.spell = true end,
+})
 
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
