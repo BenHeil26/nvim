@@ -7,6 +7,10 @@ return {
     plugins = {
       tmux = {
         enabled = true -- hides the tmux status line
+      },
+      kitty = {
+        enabled = true,
+        font = "+4"
       }
     }
   },
