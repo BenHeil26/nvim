@@ -1,0 +1,35 @@
+{
+  "name": [
+    "http-server-handlers-plugin",
+    "ip-filter"
+  ],
+  "http-server-handlers-plugin": {
+    "authorization-decryptor-handler": {
+      "client-id-salt": "{{ .environment_settings.client_id_salt }}"
+    },
+    "internal-access-handler": {
+      "internal-api-key": "{{ env "INTERNAL_API_KEY" }}"
+    },
+    "lowercase-query-handler": {
+      "enabled": true
+    },
+    "token-exchange-handler": {
+      "idp": "{{ .environment_settings.urls.idp }}",
+      "client-id": "{{ env "IDP_CLIENT_ID" }}",
+      "client-secret": "{{ env "IDP_CLIENT_SECRET" }}"
+    },
+    "weblink-claim-propagator-handler": {
+      "issuer": "{{ .environment_settings.urls.weblink_issuer }}"
+    }
+  },
+  "ip-filter": {
+    "CIDR": [
+      "0.0.0.0/0"
+    ],
+    "trusted_proxies": [
+      "10.0.0.0/8"
+    ],
+    "allow": true
+  }
+}
+
