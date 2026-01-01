@@ -10,11 +10,6 @@ return {
     feeds = {
       feeds = {
         {
-          "https://neovim.io/news.xml",
-          name = "Neovim News",
-          tags = { "nvim", "news" }
-        },
-        {
           "https://hnrss.org/frontpage",
           name = "Hacker News Frontpage",
           tags = { "tech", "news" }
