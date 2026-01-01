@@ -1,7 +1,9 @@
+-- editor options {{{
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "number"
 vim.opt.showmode = false
+vim.o.foldmethod = 'marker'
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function() vim.opt_local.spell = true end,
@@ -14,7 +16,9 @@ vim.opt.expandtab = true
 vim.opt.termguicolors = true
 vim.o.scrolloff = 8
 vim.opt.wrap = false
+-- }}}
 
+-- lsp config {{{
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local group = vim.api.nvim_create_augroup("LspFormat_" .. args.buf, { clear = true })
@@ -29,7 +33,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.lsp.handlers["textDocument/semanticTokens/full"] = function() end
+-- }}}
 
+-- cursor settings
 vim.opt.guicursor = {
   "n-v-c:block",
   "i-ci-ve:block-blinkwait700-blinkoff400-blinkon250",
@@ -37,38 +43,3 @@ vim.opt.guicursor = {
   "o:hor50",
   "a:"
 }
-
-vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>")
-
-vim.keymap.set("n", "<leader>nls", "<cmd>ZkNotes<cr>")
-vim.keymap.set("v", "<leader>nm", "<cmd>'<,'>ZkMatch<cr>")
-vim.api.nvim_create_user_command(
-  "ZkDaily",
-  function()
-    local file_path = vim.fn.system("zk get-daily")
-    vim.fn.system("zk daily")
-    vim.cmd("edit " .. file_path)
-  end,
-  {}
-)
-vim.keymap.set("n", "<leader>nd", "<cmd>ZkDaily<cr>")
-vim.keymap.set("n", "<leader>nt", "<cmd>ZkTags<cr>")
-vim.api.nvim_create_user_command(
-  "ZkFleeting",
-  function()
-    local note = vim.fn.input('Note > ')
-    vim.fn.system("echo " .. note .. " | zk fl")
-    print("\r\nFleeting note created!")
-  end,
-  {}
-)
-vim.keymap.set("n", "<leader>nf", "<cmd>ZkFleeting<cr>")
-
-vim.api.nvim_create_user_command("SplitTerminal",
-  function()
-    vim.cmd("belowright split")
-    vim.cmd("terminal")
-  end,
-  {}
-)
-vim.keymap.set("n", "<leader>ts", "<cmd>SplitTerminal<cr>")
