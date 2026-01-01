@@ -17,6 +17,13 @@ return {
           "rust",
           "jsdoc",
           "bash",
+          "css",
+          "norg",
+          "scss",
+          "svelte",
+          "tsx",
+          "typst",
+          "vue",
         },
 
         -- Install parsers synchronously (only applied to `ensure_installed`)
