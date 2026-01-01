@@ -63,3 +63,12 @@ vim.api.nvim_create_user_command(
   {}
 )
 vim.keymap.set("n", "<leader>nf", "<cmd>ZkFleeting<cr>")
+
+vim.api.nvim_create_user_command("SplitTerminal",
+  function()
+    vim.cmd("belowright split")
+    vim.cmd("terminal")
+  end,
+  {}
+)
+vim.keymap.set("n", "<leader>ts", "<cmd>SplitTerminal<cr>")
