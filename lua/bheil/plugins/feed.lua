@@ -20,6 +20,11 @@ return {
           tags = { "rust", "reddit" }
         },
         {
+          "https://www.reddit.com/r/neovim.rss",
+          name = "Neovim Subreddit",
+          tags = { "nvim", "reddit" }
+        },
+        {
           "rsshub://github/trending/weekly/any",
           name = "Trending Repos",
           tags = { "trending", "github" }
