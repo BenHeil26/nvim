@@ -13,6 +13,8 @@ end
 
 This is a file to test `peek.nvim`
 
+this should show up dynamically and it is very cool
+
 List of stuff:
 * first thing
 * Second thing
