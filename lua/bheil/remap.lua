@@ -18,7 +18,6 @@ vim.api.nvim_create_user_command(
   end,
   {}
 )
-vim.keymap.set("n", "<leader>nd", "<cmd>ZkDaily<cr>")
 vim.keymap.set("n", "<leader>nt", "<cmd>ZkTags<cr>")
 vim.api.nvim_create_user_command(
   "ZkFleeting",
