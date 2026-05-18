@@ -19,7 +19,6 @@ return {
           "jsdoc",
           "bash",
           "css",
-          "norg",
           "scss",
           "svelte",
           "tsx",
