@@ -107,3 +107,7 @@ require('gitsigns').setup {
   },
 }
 -- }}}
+
+-- csvview {{{
+
+-- }}}

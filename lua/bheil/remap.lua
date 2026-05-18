@@ -124,3 +124,15 @@ require('gitsigns').setup {
   end
 }
 -- }}}
+
+-- csvview {{{
+vim.keymap.set('n', '<leader>csv', function()
+  local filename = vim.api.nvim_buf_get_name(0)
+  local ext = filename:match("^.+(%..+)$")
+  if ext == '.csv' then
+    vim.cmd('CsvViewEnable display_mode=border')
+  else
+    print('Not a CSV file!')
+  end
+end)
+-- }}}
