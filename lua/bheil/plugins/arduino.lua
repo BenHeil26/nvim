@@ -1,16 +1,10 @@
 return {
-  "yuukiflow/Arduino-Nvim",
+  "ddaniel27/Arduino-Nvim",
+  branch = "feat/update-lsp-and-other-commands",
   dependencies = {
     "nvim-telescope/telescope.nvim",
     "neovim/nvim-lspconfig",
   },
-  config = function()
-    -- Load Arduino plugin for .ino files
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "arduino",
-      callback = function()
-        require("Arduino-Nvim")
-      end,
-    })
-  end,
+  ft = "arduino",
+  opts = {}
 }

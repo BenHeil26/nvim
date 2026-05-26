@@ -152,19 +152,6 @@ return {
       vim.lsp.enable("gopls")
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("csharp_ls")
-      vim.lsp.enable("arduino-language-server")
-      vim.lsp.config("arduino-language-server", {
-        capabilities = {
-          textDocument = {
-            semanticTokens = vim.NIL
-          },
-          workspace = {
-            semanticTokens = vim.NIL
-          }
-        },
-        filetypes = { "arduino" },
-        cmd = { "arduino-language-server", "-cli-config", "~/Library/Arduino15/arduino-cli.yaml" }
-      })
       vim.lsp.config("marksman", {
         capabilities = capabilities,
       })
