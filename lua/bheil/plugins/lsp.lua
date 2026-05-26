@@ -152,6 +152,10 @@ return {
       vim.lsp.enable("gopls")
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("csharp_ls")
+      vim.lsp.enable("clangd")
+      vim.lsp.config("clangd", {
+        capabilities = capabilities
+      })
       vim.lsp.config("marksman", {
         capabilities = capabilities,
       })

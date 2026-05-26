@@ -8,6 +8,7 @@ return {
     treesitter.install {
       'java',
       'c',
+      'cpp',
       'lua',
       'vim',
       'vimdoc',
