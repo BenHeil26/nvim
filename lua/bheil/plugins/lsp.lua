@@ -153,8 +153,12 @@ return {
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("csharp_ls")
       vim.lsp.enable("clangd")
+      vim.lsp.enable("glsl_analyzer")
+      vim.lsp.config("glsl_analyzer", {
+        capabilities = capabilities,
+      })
       vim.lsp.config("clangd", {
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       vim.lsp.config("marksman", {
         capabilities = capabilities,
