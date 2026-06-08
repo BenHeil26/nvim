@@ -146,32 +146,22 @@ return {
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       vim.lsp.enable("marksman")
-      vim.lsp.enable("svelte")
-      vim.lsp.enable("pyright")
-      vim.lsp.enable("ts_ls")
-      vim.lsp.enable("gopls")
-      vim.lsp.enable("lua_ls")
-      vim.lsp.enable("csharp_ls")
-      vim.lsp.enable("clangd")
-      vim.lsp.enable("glsl_analyzer")
-      vim.lsp.config("glsl_analyzer", {
-        capabilities = capabilities,
-      })
-      vim.lsp.config("clangd", {
-        capabilities = capabilities,
-      })
       vim.lsp.config("marksman", {
         capabilities = capabilities,
       })
+      vim.lsp.enable("svelte")
+      vim.lsp.config("svelte", {
+        capabilities = capabilities,
+      })
+      vim.lsp.enable("pyright")
       vim.lsp.config("pyright", {
         capabilities = capabilities,
       })
+      vim.lsp.enable("ts_ls")
       vim.lsp.config("ts_ls", {
         capabilities = capabilities
       })
-      vim.lsp.config("csharp_ls", {
-        capabilities = capabilities,
-      })
+      vim.lsp.enable("gopls")
       vim.lsp.config("gopls", {
         cmd = { 'gopls' },
         capabilities = capabilities,
@@ -189,6 +179,7 @@ return {
           usePlaceholders = true,
         }
       })
+      vim.lsp.enable("lua_ls")
       vim.lsp.config("lua_ls", {
         capabilities = capabilities,
         settings = {
@@ -234,6 +225,22 @@ return {
             nvim_settings
           )
         end,
+      })
+      vim.lsp.enable("csharp_ls")
+      vim.lsp.config("csharp_ls", {
+        capabilities = capabilities,
+      })
+      vim.lsp.enable("clangd")
+      vim.lsp.config("clangd", {
+        capabilities = capabilities,
+      })
+      vim.lsp.enable("glsl_analyzer")
+      vim.lsp.config("glsl_analyzer", {
+        capabilities = capabilities,
+      })
+      vim.lsp.enable("zls")
+      vim.lsp.config("zls", {
+        capabilities = capabilities
       })
       -- This is where you enable features that only work
       -- if there is a language server active in the file
