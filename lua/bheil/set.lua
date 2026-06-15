@@ -15,7 +15,7 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.termguicolors = true
 vim.o.scrolloff = 8
-vim.opt.wrap = false
+vim.opt.wrap = true
 -- }}}
 
 -- lsp config {{{
