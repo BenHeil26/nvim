@@ -7,19 +7,20 @@ return {
     local treesitter = require("nvim-treesitter")
     treesitter.setup()
     treesitter.install {
-      'java',
       'c',
       'cpp',
+      'go',
+      'html',
+      'java',
+      'javascript',
       'lua',
+      'query',
+      'rust',
+      'typescript',
       'vim',
       'vimdoc',
-      'query',
-      'javascript',
-      'typescript',
-      'html',
       'yaml',
-      'rust',
-      'go',
+      'zig',
     }
 
     vim.api.nvim_create_autocmd('FileType', {
@@ -27,7 +28,7 @@ return {
       callback = function()
         -- syntax highlighting, provided by Neovim
         vim.treesitter.start()
-        -- folds, provided by Neovim (I don't like folds)
+        -- folds, provided by Neovim (only want manual folds)
         -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
         -- vim.wo.foldmethod = 'expr'
         -- indentation, provided by nvim-treesitter

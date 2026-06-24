@@ -6,6 +6,9 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 -- zenmode
 vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>")
 
+-- sort
+vim.keymap.set("x", "<leader>ss", ":sort<cr>")
+
 -- zk commands {{{
 vim.keymap.set("n", "<leader>nls", "<cmd>ZkNotes<cr>")
 vim.keymap.set("v", "<leader>nm", "<cmd>'<,'>ZkMatch<cr>")
