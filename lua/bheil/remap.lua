@@ -88,7 +88,15 @@ require('gitsigns').setup {
       end
     end)
 
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "gitsigns*",
+      callback = function()
+        vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = true })
+      end,
+    })
+
     -- Actions
+    map('n', '<leader>gb', gitsigns.blame)
     map('n', '<leader>hs', gitsigns.stage_hunk)
     map('n', '<leader>hr', gitsigns.reset_hunk)
 
