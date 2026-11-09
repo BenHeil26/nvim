@@ -4,7 +4,15 @@ return {
   ---@type CsvView.Options
   opts = {
     display_mode = "border",
-    parser = { comments = { "#", "//" } },
+    parser = {
+      comments = { "#", "//" },
+      delimiter = {
+        ft = {
+          csv = ",",
+          tsv = "\t",
+        },
+      },
+    },
     keymaps = {
       -- Text objects for selecting fields
       textobject_field_inner = { "if", mode = { "o", "x" } },
